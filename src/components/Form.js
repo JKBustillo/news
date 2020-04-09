@@ -12,13 +12,19 @@ const OPCIONES = [
     { value: 'technology', label: 'Tecnología' },
 ];
 
-const Form = () => {
+const Form = ({ setCategoria }) => {
     const [categoria, SelectNoticias] = useSelect('general', OPCIONES);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        setCategoria(categoria);
+    }
 
     return (
         <div className={`row ${styles.buscador}`}>
             <div className="col s12 m8 offset-m2">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h2 className={styles.heading}>Encuentra noticias por su categoría</h2>
 
                     <SelectNoticias />
