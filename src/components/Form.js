@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Form.module.css';
 import useSelect from '../hooks/useSelect';
+import PropTypes from 'prop-types';
 
 const OPCIONES = [
     { value: 'general', label: 'General' },
@@ -42,5 +43,9 @@ const Form = ({ setCategoria }) => {
         </div>
     );
 }
+
+Form.propTypes = {
+    setCategoria: PropTypes.func.isRequired,
+};
  
 export default Form;
